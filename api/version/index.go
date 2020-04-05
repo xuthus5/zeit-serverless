@@ -3,7 +3,6 @@ package handler
 import (
 	"encoding/json"
 	"errors"
-	"fmt"
 	"net/http"
 	"reflect"
 	"strconv"
@@ -17,6 +16,7 @@ var (
 	engine *gorm.DB
 )
 
+// Connect 数据库连接
 func Connect() error {
 	var err error
 	if engine, err = gorm.Open("sqlite3", "./data.db"); err != nil {
@@ -34,7 +34,7 @@ type List struct {
 	Data    interface{} `json:"data"`    //请求结果
 }
 
-// Go Version
+// GoVersion 版本
 type GoVersion struct {
 	ID      int        `json:"-"`
 	Version string     `gorm:"unique;not null" json:"version"` //版本
@@ -42,7 +42,7 @@ type GoVersion struct {
 	List    []GoBranch `json:"list"`
 }
 
-// Branch 版本分支信息
+// GoBranch 版本分支信息
 type GoBranch struct {
 	ID          int    `json:"-"`                                 //ID
 	GoVersionID int    `json:"-"`                                 //外键
@@ -63,9 +63,16 @@ type GoParams struct {
 	Stable   bool   `form:"stable"`  //是否稳定版
 }
 
+// Handler serverless-functions 函数暴露
 func Handler(w http.ResponseWriter, r *http.Request) {
 	if err := Connect(); err != nil {
-		fmt.Fprintf(w, err.Error())
+		response, _ := json.Marshal(&List{
+			Code:    200,
+			Message: err.Error(),
+		})
+		w.Header().Set("Content-Type", "application/json;charset=utf-8")
+		w.Header().Set("Content-Length", strconv.Itoa(len(string(response))))
+		_, _ = w.Write(response)
 		return
 	}
 	defer engine.Close()
@@ -86,7 +93,13 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	}
 	data, err := Fetch(params)
 	if err != nil {
-		fmt.Fprintf(w, err.Error())
+		response, _ := json.Marshal(&List{
+			Code:    200,
+			Message: err.Error(),
+		})
+		w.Header().Set("Content-Type", "application/json;charset=utf-8")
+		w.Header().Set("Content-Length", strconv.Itoa(len(string(response))))
+		_, _ = w.Write(response)
 		return
 	}
 	response, _ := json.Marshal(&List{
