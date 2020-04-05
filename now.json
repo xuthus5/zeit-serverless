@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "functions": {
+    "api/version/index.go": {
+      "maxDuration": 5,
+      "includeFiles": "data.db"
+    }
+  },
+  "routes": [
+    { "src": "/api/go/version/get", "dest": "api/version/index.go" },
+    { "src": "/", "dest": "index.html" },
+    { "src": "/api", "dest": "index.html" }
+  ]
+}
