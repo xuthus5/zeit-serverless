@@ -47,7 +47,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	})
 	//公共的响应头设置
 	w.Header().Set("Access-Control-Allow-Origin", "*")
-	w.Header().Set("Access-Control-Allow-Headers", "Origin, Content-Type, cache-control,Cookie, Accept")
+	w.Header().Set("Access-Control-Allow-Headers", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, OPTIONS")
 	w.Header().Set("Content-Type", "application/json;charset=utf-8")
 	//执行何种操作
