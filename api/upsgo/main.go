@@ -109,8 +109,15 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		_, _ = w.Write(response)
 		return
 	} else if operate == "upload" {
-		var path = r.URL.Query().Get("path")
 		var _, header, err = r.FormFile("file")
+		var path string
+		r.ParseMultipartForm(32 << 20)
+		if r.MultipartForm != nil {
+			values := r.MultipartForm.Value["path"]
+			if len(values) > 0 {
+				path = values[0]
+			}
+		}
 		if err != nil {
 			response, _ := json.Marshal(&Response{
 				Code:    500,
