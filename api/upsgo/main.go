@@ -109,7 +109,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		_, _ = w.Write(response)
 		return
 	} else if operate == "upload" {
-		var path = r.Form.Get("path")
+		var path = r.URL.Query().Get("path")
 		var _, header, err = r.FormFile("file")
 		if err != nil {
 			response, _ := json.Marshal(&Response{
