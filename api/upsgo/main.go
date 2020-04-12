@@ -45,6 +45,9 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		Operator: conf.Operator,
 		Password: conf.Password,
 	})
+	//公共的响应头设置
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Content-Type", "application/json;charset=utf-8")
 	//执行何种操作
 	var operate = r.URL.Query().Get("operate")
 	if operate == "list" {
@@ -75,7 +78,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 			Data:    list,
 			Count:   len(list),
 		})
-		w.Header().Set("Content-Type", "application/json;charset=utf-8")
+
 		w.Header().Set("Content-Length", strconv.Itoa(len(string(response))))
 		_, _ = w.Write(response)
 		return
@@ -92,7 +95,6 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 				Code:    500,
 				Message: "ErrorDelete:" + err.Error(),
 			})
-			w.Header().Set("Content-Type", "application/json;charset=utf-8")
 			w.Header().Set("Content-Length", strconv.Itoa(len(string(response))))
 			_, _ = w.Write(response)
 			return
@@ -101,7 +103,6 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 			Code:    200,
 			Message: "ok",
 		})
-		w.Header().Set("Content-Type", "application/json;charset=utf-8")
 		w.Header().Set("Content-Length", strconv.Itoa(len(string(response))))
 		_, _ = w.Write(response)
 		return
@@ -113,7 +114,6 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 				Code:    500,
 				Message: "ErrorUpload:" + err.Error(),
 			})
-			w.Header().Set("Content-Type", "application/json;charset=utf-8")
 			w.Header().Set("Content-Length", strconv.Itoa(len(string(response))))
 			_, _ = w.Write(response)
 			return
@@ -129,7 +129,6 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 				Code:    500,
 				Message: "ErrorUpload:" + err.Error(),
 			})
-			w.Header().Set("Content-Type", "application/json;charset=utf-8")
 			w.Header().Set("Content-Length", strconv.Itoa(len(string(response))))
 			_, _ = w.Write(response)
 			return
@@ -138,7 +137,6 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 			Code:    200,
 			Message: "ok",
 		})
-		w.Header().Set("Content-Type", "application/json;charset=utf-8")
 		w.Header().Set("Content-Length", strconv.Itoa(len(string(response))))
 		_, _ = w.Write(response)
 		return
@@ -149,7 +147,6 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 				Code:    500,
 				Message: "ErrorMkdir:" + err.Error(),
 			})
-			w.Header().Set("Content-Type", "application/json;charset=utf-8")
 			w.Header().Set("Content-Length", strconv.Itoa(len(string(response))))
 			_, _ = w.Write(response)
 			return
@@ -158,7 +155,6 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 			Code:    200,
 			Message: "ok",
 		})
-		w.Header().Set("Content-Type", "application/json;charset=utf-8")
 		w.Header().Set("Content-Length", strconv.Itoa(len(string(response))))
 		_, _ = w.Write(response)
 		return
@@ -167,7 +163,6 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 			Code:    200,
 			Message: conf.Domain,
 		})
-		w.Header().Set("Content-Type", "application/json;charset=utf-8")
 		w.Header().Set("Content-Length", strconv.Itoa(len(string(response))))
 		_, _ = w.Write(response)
 		return
