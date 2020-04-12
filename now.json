@@ -13,6 +13,11 @@
     { "src": "/api/go/version/get", "dest": "api/version/index.go" },
     { "src": "/api/go/upsgo", "dest": "api/upsgo/main.go" },
     { "src": "/", "dest": "index.html" },
-    { "src": "/api", "dest": "index.html" }
+    { "src": "/api", "dest": "index.html" },
+    { "handle": "filesystem" },
+    { "src": "/upsgo/.*", "dest": "dist/upsgo/index.html" }
+  ],
+  "rewrites": [
+    { "source": "/upsgo/(.*)", "destination": "dist/upsgo/index.html" }
   ]
 }

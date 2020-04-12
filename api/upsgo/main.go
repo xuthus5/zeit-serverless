@@ -123,7 +123,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		dst := header.Filename
 		source, _ := header.Open()
 		if err := up.Put(&upyun.PutObjectConfig{
-			Path:   path + "/" + dst,
+			Path:   path + dst,
 			Reader: source,
 		}); err != nil {
 			//上传失败
