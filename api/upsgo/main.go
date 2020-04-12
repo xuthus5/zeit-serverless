@@ -47,6 +47,8 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	})
 	//公共的响应头设置
 	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Headers", "Origin, Content-Type, cache-control,Cookie, Accept")
+	w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, OPTIONS")
 	w.Header().Set("Content-Type", "application/json;charset=utf-8")
 	//执行何种操作
 	var operate = r.URL.Query().Get("operate")
@@ -74,7 +76,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		//返回信息
 		response, _ := json.Marshal(&List{
 			Code:    200,
-			Message: "ok",
+			Message: conf.Domain,
 			Data:    list,
 			Count:   len(list),
 		})
