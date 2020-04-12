@@ -7,9 +7,6 @@
     },
     "api/upsgo/main.go": {
       "maxDuration": 5
-    },
-    "dist/upsgo/**": {
-      
     }
   },
   "routes": [
