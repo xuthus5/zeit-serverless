@@ -138,6 +138,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		response, _ := json.Marshal(&Response{
 			Code:    200,
 			Message: "ok",
+			Data:    path + dst,
 		})
 		w.Header().Set("Content-Length", strconv.Itoa(len(string(response))))
 		_, _ = w.Write(response)

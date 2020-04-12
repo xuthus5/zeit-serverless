@@ -14,6 +14,9 @@
     { "src": "/api/go/upsgo", "dest": "api/upsgo/main.go" },
     { "src": "/", "dest": "index.html" },
     { "src": "/api", "dest": "index.html" },
-    { "src": "/upsgo/.*", "dest": "dist/upsgo/index.html" }
+    { "handle": "filesystem" },
+    { "src": "/upsgo/css/(.*)", "dest": "dist/upsgo/css/$1" },
+    { "src": "/upsgo/js/(.*)", "dest": "dist/upsgo/js/$1" },
+    { "src": "/upsgo/(.*)", "dest": "dist/upsgo/index.html" }
   ]
 }
