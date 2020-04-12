@@ -4,10 +4,14 @@
     "api/version/index.go": {
       "maxDuration": 5,
       "includeFiles": "data.db"
+    },
+    "api/upsgo/main.go": {
+      "maxDuration": 5
     }
   },
   "routes": [
     { "src": "/api/go/version/get", "dest": "api/version/index.go" },
+    { "src": "/api/go/upsgo", "dest": "api/upsgo/main.go" },
     { "src": "/", "dest": "index.html" },
     { "src": "/api", "dest": "index.html" }
   ]
