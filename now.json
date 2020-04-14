@@ -7,11 +7,15 @@
     },
     "api/upsgo/main.go": {
       "maxDuration": 5
+    },
+    "api/ossgo/main.go": {
+      "maxDuration": 5
     }
   },
   "routes": [
     { "src": "/api/go/version/get", "dest": "api/version/index.go" },
     { "src": "/api/go/upsgo", "dest": "api/upsgo/main.go" },
+    { "src": "/api/go/ossgo", "dest": "api/ossgo/main.go" },
     { "src": "/", "dest": "index.html" },
     { "src": "/api", "dest": "index.html" },
     { "handle": "filesystem" },
