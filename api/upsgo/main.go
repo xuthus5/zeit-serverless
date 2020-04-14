@@ -100,7 +100,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 			_, _ = w.Write(response)
 			return
 		}
-		response, _ := json.Marshal(&Response{
+		response, _ = json.Marshal(&Response{
 			Code:    200,
 			Message: "ok",
 		})
@@ -138,7 +138,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 			_, _ = w.Write(response)
 			return
 		}
-		response, _ := json.Marshal(&Response{
+		response, _ = json.Marshal(&Response{
 			Code:    200,
 			Message: "ok",
 			Data:    conf.Domain + path + dst,
@@ -154,12 +154,12 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 			_, _ = w.Write(response)
 			return
 		}
-		response, _ := json.Marshal(&Response{
+		response, _ = json.Marshal(&Response{
 			Code:    200,
 			Message: "ok",
 		})
 	} else if operate == "domain" {
-		response, _ := json.Marshal(&Response{
+		response, _ = json.Marshal(&Response{
 			Code:    200,
 			Message: conf.Domain,
 		})
