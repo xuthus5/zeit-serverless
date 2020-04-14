@@ -19,6 +19,11 @@
     { "src": "/upsgo/js/(.*)", "dest": "dist/upsgo/js/$1" },
     { "src": "/upsgo/favicon.ico", "dest": "dist/upsgo/favicon.ico" },
     { "src": "/upsgo", "dest": "dist/upsgo/index.html" },
-    { "src": "/upsgo/(.*)", "dest": "dist/upsgo/index.html" }
+    { "src": "/upsgo/(.*)", "dest": "dist/upsgo/index.html" },
+    { "src": "/ossgo/css/(.*)", "dest": "dist/ossgo/css/$1" },
+    { "src": "/ossgo/js/(.*)", "dest": "dist/ossgo/js/$1" },
+    { "src": "/ossgo/favicon.ico", "dest": "dist/ossgo/favicon.ico" },
+    { "src": "/ossgo", "dest": "dist/ossgo/index.html" },
+    { "src": "/ossgo/(.*)", "dest": "dist/ossgo/index.html" }
   ]
 }
