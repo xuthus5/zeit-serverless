@@ -19,7 +19,7 @@ var (
 // Connect 数据库连接
 func Connect() error {
 	var err error
-	if engine, err = gorm.Open("sqlite3", "./data.db"); err != nil {
+	if engine, err = gorm.Open("sqlite3", "data/data.db"); err != nil {
 		return err
 	}
 	engine.SingularTable(true)

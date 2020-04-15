@@ -1,21 +1,21 @@
 {
   "version": 2,
   "functions": {
-    "api/version/index.go": {
+    "api/version_go.go": {
       "maxDuration": 5,
-      "includeFiles": "data.db"
+      "includeFiles": "data/data.db"
     },
-    "api/upsgo/main.go": {
+    "api/upsgo.go": {
       "maxDuration": 5
     },
-    "api/ossgo/main.go": {
+    "api/ossgo.go": {
       "maxDuration": 5
     }
   },
   "routes": [
-    { "src": "/api/go/version/get", "dest": "api/version/index.go" },
-    { "src": "/api/go/upsgo", "dest": "api/upsgo/main.go" },
-    { "src": "/api/go/ossgo", "dest": "api/ossgo/main.go" },
+    { "src": "/api/version", "dest": "api/version_go.go" },
+    { "src": "/api/ups", "dest": "api/upsgo.go" },
+    { "src": "/api/oss", "dest": "api/ossgo.go" },
     { "src": "/", "dest": "index.html" },
     { "src": "/api", "dest": "index.html" },
     { "handle": "filesystem" },

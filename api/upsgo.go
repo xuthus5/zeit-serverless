@@ -11,10 +11,10 @@ import (
 var (
 	// conf 是又拍云配置项
 	conf = &Ups{
-		Bucket:   "xuthus-static-files", //Bucket名称
-		Operator: "xuthus", //被授权的操作员名称
+		Bucket:   "xuthus-static-files",              //Bucket名称
+		Operator: "xuthus",                           //被授权的操作员名称
 		Password: "afqoIZRsCt9nlPO4JPpQQIqCMw4d5ojM", //被授权的操作元密码
-		Domain:   "https://images.xuthus.cc", //加速域名
+		Domain:   "https://images.xuthus.cc",         //加速域名[不建议以/结尾]
 	}
 
 	// response 响应内容
