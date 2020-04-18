@@ -4,30 +4,11 @@
     "api/version_go.go": {
       "maxDuration": 5,
       "includeFiles": "data/data.db"
-    },
-    "api/upsgo.go": {
-      "maxDuration": 5
-    },
-    "api/ossgo.go": {
-      "maxDuration": 5
     }
   },
   "routes": [
     { "src": "/api/version", "dest": "api/version_go.go" },
-    { "src": "/api/ups", "dest": "api/upsgo.go" },
-    { "src": "/api/oss", "dest": "api/ossgo.go" },
     { "src": "/", "dest": "index.html" },
-    { "src": "/api", "dest": "index.html" },
-    { "handle": "filesystem" },
-    { "src": "/upsgo/css/(.*)", "dest": "dist/upsgo/css/$1" },
-    { "src": "/upsgo/js/(.*)", "dest": "dist/upsgo/js/$1" },
-    { "src": "/upsgo/favicon.ico", "dest": "dist/upsgo/favicon.ico" },
-    { "src": "/upsgo", "dest": "dist/upsgo/index.html" },
-    { "src": "/upsgo/(.*)", "dest": "dist/upsgo/index.html" },
-    { "src": "/ossgo/css/(.*)", "dest": "dist/ossgo/css/$1" },
-    { "src": "/ossgo/js/(.*)", "dest": "dist/ossgo/js/$1" },
-    { "src": "/ossgo/favicon.ico", "dest": "dist/ossgo/favicon.ico" },
-    { "src": "/ossgo", "dest": "dist/ossgo/index.html" },
-    { "src": "/ossgo/(.*)", "dest": "dist/ossgo/index.html" }
+    { "src": "/api", "dest": "index.html" }
   ]
 }
